@@ -6,25 +6,23 @@ import 'package:flutter/rendering.dart';
 
 typedef void CounterChangeCallback(num value);
 
+// ignore: must_be_immutable
 class Counter extends StatelessWidget {
 
   final CounterChangeCallback onChanged;
 
   Counter({
-    Key key,
-    @required num initialValue,
-    @required this.minValue,
-    @required this.maxValue,
-    @required this.onChanged,
-    @required this.decimalPlaces,
+    Key? key,
+    required num initialValue,
+    required this.minValue,
+    required this.maxValue,
+    required this.onChanged,
+    required this.decimalPlaces,
     this.color,
     this.textStyle,
     this.step = 1,
     this.buttonSize = 25,
-  })  : assert(initialValue != null),
-        assert(minValue != null),
-        assert(maxValue != null),
-        assert(maxValue > minValue),
+  })  : assert(maxValue > minValue),
         assert(initialValue >= minValue && initialValue <= maxValue),
         assert(step > 0),
         selectedValue = initialValue,
@@ -46,10 +44,10 @@ class Counter extends StatelessWidget {
   final num step;
 
   /// indicates the color of fab used for increment and decrement
-  Color color;
+  Color? color;
 
   /// text syle
-  TextStyle textStyle;
+  TextStyle? textStyle;
 
   final double buttonSize;
 
